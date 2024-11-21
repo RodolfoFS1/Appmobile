@@ -17,9 +17,17 @@ class Header extends StatelessWidget implements PreferredSizeWidget {
       elevation: 0,
       title: Row(
         children: [
-          Image.asset(
-            'assets/logo.png',
-            height: 80,
+          Container(
+            height: 120, // Ajusta la altura según tus necesidades
+            width: 120, // Ajusta el ancho según tus necesidades
+            margin: EdgeInsets.only(right: 10), // Margen para separar del texto
+            decoration: BoxDecoration(
+              shape: BoxShape.rectangle, // Opcional: hacer que sea circular
+            ),
+            child: Image.asset(
+              'assets/logo.png',
+              fit: BoxFit.fitWidth,
+            ),
           ),
           Spacer(),
           if (isLoggedIn)
@@ -30,7 +38,7 @@ class Header extends StatelessWidget implements PreferredSizeWidget {
                   Icon(Icons.account_circle, size: 45, color: Colors.white),
                   Text(
                     'Logout',
-                    style: TextStyle(color: Colors.white, fontSize: 12),
+                    style: TextStyle(color: Colors.white, fontSize: 8),
                   ),
                 ],
               ),
@@ -50,5 +58,5 @@ class Header extends StatelessWidget implements PreferredSizeWidget {
   }
 
   @override
-  Size get preferredSize => Size.fromHeight(150);
+  Size get preferredSize => Size.fromHeight(70);
 }
